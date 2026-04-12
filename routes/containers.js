@@ -534,6 +534,9 @@ router.post("/:userId/chat/stream", async (req, res) => {
       onData(text) {
         res.write(`data: ${JSON.stringify({ type: "text", content: text })}\n\n`);
       },
+      onStatus(text) {
+        res.write(`data: ${JSON.stringify({ type: "status", content: text })}\n\n`);
+      },
       onError(text) {
         res.write(`data: ${JSON.stringify({ type: "error", content: text })}\n\n`);
       },
